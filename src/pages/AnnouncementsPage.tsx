@@ -1,5 +1,6 @@
 import { Shell } from '@/components/layout/Shell'
 import { Megaphone } from 'lucide-react'
+import { CardSection } from '@/components/card/CardSection'
 import { AnnouncementCard } from '@/components/announcements/AnnouncementCard'
 import { useAnnouncements } from '@/hooks/useAnnouncements'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -9,12 +10,7 @@ export function AnnouncementsPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold md:text-4xl">Announcements</h1>
-          <p className="text-quiet-ink">Stay informed with the latest school news.</p>
-        </div>
-
+      <CardSection title="Announcements" align="right" plain subtitle="Stay informed with the latest school news.">
         {isLoading ? (
           <div className="space-y-4">
             {[1, 2, 3, 4].map((i) => (
@@ -28,13 +24,13 @@ export function AnnouncementsPage() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed py-16 text-center">
-            <Megaphone className="mb-4 h-12 w-12 text-quiet-ink" />
-            <h2 className="text-xl font-semibold">No announcements right now</h2>
-            <p className="text-quiet-ink">Check back later for updates from staff.</p>
+          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-white/30 bg-black/50 py-16 text-center">
+            <Megaphone className="mb-4 h-12 w-12 text-white/50" />
+            <h2 className="text-xl font-semibold text-white">No announcements right now</h2>
+            <p className="text-white/70">Check back later for updates from staff.</p>
           </div>
         )}
-      </div>
+      </CardSection>
     </Shell>
   )
 }

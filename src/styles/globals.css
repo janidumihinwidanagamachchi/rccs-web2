@@ -370,3 +370,439 @@ body.has-backdrop {
   from { opacity: 0; transform: translateY(-0.5rem); }
   to { opacity: 1; transform: translateY(0); }
 }
+
+/* =========================================================
+   The Card — layout & placement layer
+   Mirrors tooplate-style.css (Template 2109 The Card)
+   ========================================================= */
+
+/* Entry loader */
+.card-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #222222;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 0.5s ease 0.8s,
+    visibility 0.5s ease 0.8s;
+}
+
+.card-loader--done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.card-loader-ring {
+  position: relative;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  border-top-color: #3498db;
+  animation: card-spin 2s linear infinite;
+}
+
+.card-loader-ring::before,
+.card-loader-ring::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  border: 3px solid transparent;
+}
+
+.card-loader-ring::before {
+  top: 5px;
+  right: 5px;
+  bottom: 5px;
+  left: 5px;
+  border-top-color: #e74c3c;
+  animation: card-spin 3s linear infinite;
+}
+
+.card-loader-ring::after {
+  top: 15px;
+  right: 15px;
+  bottom: 15px;
+  left: 15px;
+  border-top-color: #f9c922;
+  animation: card-spin 1.5s linear infinite;
+}
+
+@keyframes card-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Top container: site header box + menu */
+.tm-top-container {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 30px 24px 0;
+}
+
+.tm-site-header-box {
+  display: inline-block;
+  max-width: min(600px, 100%);
+  padding: 34px 60px 34px 34px;
+  background: rgba(0, 0, 0, 0.7);
+}
+
+.tm-site-title {
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.tm-site-subtitle {
+  margin-top: 10px;
+  color: #cdffd0;
+  font-size: clamp(1.05rem, 2.2vw, 1.4rem);
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+/* Menu */
+.tm-nav {
+  align-self: flex-end;
+  text-transform: uppercase;
+  position: relative;
+}
+
+.tm-navbar-menu {
+  display: block;
+  margin-left: auto;
+  width: 120px;
+  padding: 10px 20px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: color 0.2s;
+}
+
+.tm-navbar-menu:hover {
+  color: #a20015;
+}
+
+.tm-nav-links {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  min-width: 230px;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    max-height 0.3s ease,
+    opacity 0.25s ease;
+}
+
+.tm-nav-links--open {
+  max-height: 640px;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.tm-nav-links a,
+.tm-nav-action {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 10px 40px;
+  background: #ffffff;
+  color: #000000;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  font-size: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.tm-nav-links a:hover,
+.tm-nav-links a.active,
+.tm-nav-action:hover {
+  color: #a20015;
+}
+
+/* Content columns — right by default, mirroring the template's
+   Introduction/About (right), Work/gallery (middle), Contact (left) */
+.card-align {
+  display: flex;
+  width: 100%;
+  padding: 34px 24px 26px;
+}
+
+.card-align--right {
+  justify-content: flex-end;
+}
+
+.card-align--middle {
+  justify-content: center;
+}
+
+.card-align--left {
+  justify-content: flex-start;
+}
+
+.card-section {
+  width: 100%;
+  max-width: 880px;
+}
+
+.card-section--wide {
+  max-width: none;
+}
+
+.card-section--slim {
+  max-width: 575px;
+}
+
+.card-section-title {
+  margin: 0 0 1.1rem;
+  font-size: clamp(1.9rem, 5vw, 3.4rem);
+  line-height: 1.1;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--ink);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.45);
+}
+
+.card-section-subtitle {
+  display: block;
+  margin-top: 8px;
+  font-size: clamp(1rem, 2.2vw, 1.25rem);
+  font-weight: 300;
+  color: var(--quiet-ink);
+}
+
+.card-textbox {
+  padding: 40px 42px;
+  background: rgba(0, 0, 0, 0.7);
+  color: #c5c7c6;
+  font-size: 1.05rem;
+  line-height: 1.8;
+}
+
+.card-surface--plain {
+  padding: 0;
+}
+
+.card-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 28px;
+}
+
+.card-link {
+  display: inline-block;
+  padding: 15px 30px;
+  background: #ffffff;
+  color: #000000;
+  text-transform: uppercase;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.card-link:hover {
+  color: #a20015;
+}
+
+/* Gallery — Goliath-style tiles */
+.card-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.card-gallery-item {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  background: #3085a3;
+  cursor: pointer;
+  border: none;
+  height: 200px;
+}
+
+.card-gallery-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.82;
+  transition: transform 0.35s;
+}
+
+.card-gallery-caption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px;
+  color: #ffffff;
+  text-transform: uppercase;
+  transition: transform 0.35s;
+}
+
+.card-gallery-kicker {
+  font-weight: 300;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  opacity: 0.9;
+}
+
+.card-gallery-title {
+  font-weight: 700;
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.card-gallery-item:hover img {
+  transform: translate3d(0, -22px, 0);
+}
+
+.card-gallery-item:hover .card-gallery-caption {
+  transform: translate3d(0, -30px, 0);
+}
+
+/* Footer — pinned bottom-left, static once content flows past */
+.tm-bottom-container {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 5;
+}
+
+.tm-barcode-box {
+  margin: 0 0 14px 95px;
+}
+
+.tm-bottom-container img {
+  width: 150px;
+  height: auto;
+}
+
+.tm-bottom-container footer {
+  margin: 0 40px 30px 40px;
+  font-weight: 300;
+  font-size: 0.9rem;
+  line-height: 2;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.tm-bottom-container footer a {
+  color: #ffffff;
+}
+
+/* Route fold fade */
+.animate-card-fade {
+  animation: card-fade 0.55s ease both;
+}
+
+@keyframes card-fade {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card-loader,
+  .card-loader-ring,
+  .card-loader-ring::before,
+  .card-loader-ring::after,
+  .card-gallery-item img,
+  .card-gallery-caption,
+  .animate-card-fade {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Responsive — mirrors the template's 991/767 breakpoints */
+@media (max-width: 991px) {
+  .tm-bottom-container {
+    position: static;
+  }
+
+  .tm-bottom-container footer {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 767px) {
+  .tm-top-container {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 18px 16px 0;
+  }
+
+  .tm-site-header-box {
+    padding: 24px 28px;
+  }
+
+  .tm-nav {
+    align-self: flex-end;
+  }
+
+  .card-align {
+    padding: 26px 16px 24px;
+  }
+
+  .card-textbox {
+    padding: 28px 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .tm-site-header-box {
+    padding: 20px 20px;
+  }
+
+  .card-gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .card-gallery-item {
+    height: 150px;
+  }
+
+  .card-section-title {
+    font-size: 1.9rem;
+  }
+}

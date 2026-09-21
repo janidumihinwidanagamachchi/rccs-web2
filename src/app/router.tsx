@@ -4,6 +4,7 @@ import { useAuth } from '@/hooks/useAuth'
 import { Shell } from '@/components/layout/Shell'
 import { ErrorBoundary } from '@/components/ErrorBoundary'
 import { HomePage } from '@/pages/HomePage'
+import { SportsPage } from '@/pages/SportsPage'
 import { EventsPage } from '@/pages/EventsPage'
 import { EventDetailPage } from '@/pages/EventDetailPage'
 import { CalendarPage } from '@/pages/CalendarPage'
@@ -76,6 +77,7 @@ export function AppRouter() {
       <React.Suspense fallback={<AdminFallback />}>
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/sports" element={<SportsPage />} />
           <Route path="/events" element={<EventsPage />} />
           <Route path="/events/:slug" element={<EventDetailPage />} />
           <Route path="/calendar" element={<CalendarPage />} />

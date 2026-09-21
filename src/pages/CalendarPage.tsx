@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { format, parseISO, addMonths, subMonths, addWeeks, subWeeks, startOfToday, isValid } from 'date-fns'
 import { Shell } from '@/components/layout/Shell'
+import { CardSection } from '@/components/card/CardSection'
 import { CalendarToolbar } from '@/components/calendar/CalendarToolbar'
 import { CalendarMonth } from '@/components/calendar/CalendarMonth'
 import { CalendarWeek } from '@/components/calendar/CalendarWeek'
@@ -119,7 +120,7 @@ export function CalendarPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto px-4 py-12">
+      <CardSection title="Calendar" align="right" wide plain subtitle="The term at a glance.">
         {isLoading ? (
           <div className="space-y-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
@@ -178,7 +179,7 @@ export function CalendarPage() {
             </div>
           </>
         )}
-      </div>
+      </CardSection>
     </Shell>
   )
 }

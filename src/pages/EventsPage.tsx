@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import { CalendarDays } from 'lucide-react'
 import { Shell } from '@/components/layout/Shell'
+import { CardSection } from '@/components/card/CardSection'
 import { EventGrid } from '@/components/events/EventGrid'
 import { EventFilters } from '@/components/events/EventFilters'
 import { useEvents, useCategories } from '@/hooks/useEvents'
@@ -25,12 +26,7 @@ export function EventsPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold md:text-4xl">Events</h1>
-          <p className="text-quiet-ink">Everything on the calendar this term.</p>
-        </div>
-
+      <CardSection title="Events" align="right" plain subtitle="Everything on the calendar this term.">
         {categoriesLoading ? (
           <Skeleton className="mb-8 h-10 rounded-lg" />
         ) : (
@@ -54,13 +50,13 @@ export function EventsPage() {
         ) : filteredEvents.length > 0 ? (
           <EventGrid events={filteredEvents} />
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed py-16 text-center">
-            <CalendarDays className="mb-4 h-12 w-12 text-quiet-ink" />
-            <h2 className="text-xl font-semibold">No events found</h2>
-            <p className="text-quiet-ink">Try adjusting your search or filters.</p>
+          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-white/30 bg-black/50 py-16 text-center">
+            <CalendarDays className="mb-4 h-12 w-12 text-white/50" />
+            <h2 className="text-xl font-semibold text-white">No events found</h2>
+            <p className="text-white/70">Try adjusting your search or filters.</p>
           </div>
         )}
-      </div>
+      </CardSection>
     </Shell>
   )
 }

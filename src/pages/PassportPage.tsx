@@ -1,5 +1,6 @@
 import { Trophy, Calendar, MapPin, Crown } from 'lucide-react'
 import { Shell } from '@/components/layout/Shell'
+import { CardSection } from '@/components/card/CardSection'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -26,12 +27,7 @@ export function PassportPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold md:text-4xl">Event Passport</h1>
-          <p className="text-quiet-ink">Every event you attend adds a stamp.</p>
-        </div>
-
+      <CardSection title="Event Passport" align="right" wide plain subtitle="Every event you attend adds a stamp.">
         <div className="mb-8 grid gap-4 sm:grid-cols-3">
           <Card>
             <CardContent className="p-5">
@@ -173,9 +169,9 @@ export function PassportPage() {
             ))}
           </div>
         ) : (
-          <p className="text-quiet-ink">No stamps yet. Attend an event to get started.</p>
+          <p className="text-white/70">No stamps yet. Attend an event to get started.</p>
         )}
-      </div>
+      </CardSection>
     </Shell>
   )
 }

@@ -2,13 +2,14 @@ import { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
-import { Eye, EyeOff, Ticket } from 'lucide-react'
+import { Eye, EyeOff } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Label } from '@/components/ui/label'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card'
 import { Shell } from '@/components/layout/Shell'
+import { CardSection } from '@/components/card/CardSection'
 import { supabase } from '@/lib/supabase'
 import { registerSchema, type RegisterFormData } from '@/lib/validators'
 
@@ -60,15 +61,11 @@ export function RegisterPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto flex max-w-md flex-col items-center justify-center px-4 py-16">
-        <Link to="/" className="mb-6 flex items-center gap-2 text-2xl font-bold">
-          <Ticket className="h-8 w-8 text-brand" />
-          RCCSWebComp-NC
-        </Link>
-        <Card className="w-full">
+      <CardSection align="middle" slim plain>
+        <Card className="w-full bg-black/70 text-white backdrop-blur-sm">
           <CardHeader className="text-center">
             <CardTitle>Create an account</CardTitle>
-            <CardDescription>You&apos;ll need an account to register for events.</CardDescription>
+            <CardDescription className="text-white/70">You&apos;ll need an account to register for events.</CardDescription>
           </CardHeader>
           <CardContent>
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
@@ -141,7 +138,7 @@ export function RegisterPage() {
             </p>
           </CardContent>
         </Card>
-      </div>
+      </CardSection>
     </Shell>
   )
 }

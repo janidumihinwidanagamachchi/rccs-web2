@@ -1,4 +1,5 @@
 import { Shell } from '@/components/layout/Shell'
+import { CardSection } from '@/components/card/CardSection'
 import { TicketCard } from '@/components/tickets/TicketCard'
 import { useMyRegistrations } from '@/hooks/useRegistrations'
 import { Skeleton } from '@/components/ui/skeleton'
@@ -11,12 +12,7 @@ export function TicketsPage() {
 
   return (
     <Shell>
-      <div className="container mx-auto px-4 py-12">
-        <div className="mb-8">
-          <h1 className="text-3xl font-bold md:text-4xl">My Tickets</h1>
-          <p className="text-quiet-ink">Your sign-ups and QR tickets.</p>
-        </div>
-
+      <CardSection title="My Tickets" align="left" slim subtitle="Your sign-ups and QR tickets.">
         {isLoading ? (
           <div className="space-y-4">
             {[1, 2].map((i) => (
@@ -30,18 +26,16 @@ export function TicketsPage() {
             ))}
           </div>
         ) : (
-          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed py-20 text-center">
-            <Ticket className="mb-4 h-12 w-12 text-quiet-ink" />
-            <h2 className="text-xl font-semibold">No tickets yet</h2>
-            <p className="mb-6 text-quiet-ink">
-              Sign up for an event and it shows up here.
-            </p>
+          <div className="flex flex-col items-center justify-center rounded-xl border border-dashed border-white/30 bg-black/50 py-20 text-center">
+            <Ticket className="mb-4 h-12 w-12 text-white/50" />
+            <h2 className="text-xl font-semibold text-white">No tickets yet</h2>
+            <p className="mb-6 text-white/70">Sign up for an event and it shows up here.</p>
             <Button asChild>
               <Link to="/events">Browse Events</Link>
             </Button>
           </div>
         )}
-      </div>
+      </CardSection>
     </Shell>
   )
 }
