@@ -1,0 +1,86 @@
+[
+  {
+    "key": "site_settings",
+    "value": {
+      "seo": {
+        "title": "RCCSWebComp-NC | School Events",
+        "ogImageUrl": "https://www.opengraph.xyz/",
+        "description": "School events, QR tickets, and announcements for one campus."
+      },
+      "hero": {
+        "badge": "BTUI'26 Competition Entry",
+        "headline": "What's on at school,\nwithout the guesswork.",
+        "subtitle": "See what's coming up, register in a minute, and keep your QR ticket in your pocket.",
+        "primaryCta": {
+          "href": "/events",
+          "label": "Browse Events"
+        },
+        "secondaryCta": {
+          "href": "/calendar",
+          "label": "View Calendar"
+        },
+        "showCountdown": true,
+        "backgroundImageUrl": ""
+      },
+      "brand": {
+        "name": "RCCSWebComp-NC",
+        "motto": "",
+        "logoUrl": ""
+      },
+      "fonts": {
+        "body": "Open Sans",
+        "display": "Open Sans",
+        "heading": "Open Sans"
+      },
+      "theme": {
+        "mode": "dark",
+        "radius": "0px"
+      },
+      "colors": {
+        "dark": {
+          "alt": "#1f2b26",
+          "ink": "#ffffff",
+          "line": "rgba(255, 255, 255, 0.14)",
+          "brand": "#ffffff",
+          "field": "rgba(255, 255, 255, 0.12)",
+          "focus": "#00ccfc",
+          "panel": "rgba(0, 0, 0, 0.7)",
+          "quiet": "#1c2622",
+          "altInk": "#e6e8e7",
+          "canvas": "#25332e",
+          "danger": "#a20015",
+          "brandInk": "#0a0a0a",
+          "floating": "#1a2420",
+          "panelInk": "#c5c7c6",
+          "quietInk": "#a9b4ad",
+          "dangerInk": "#ffffff",
+          "highlight": "#00ccfc",
+          "floatingInk": "#ffffff",
+          "highlightInk": "#06212a"
+        },
+        "light": {
+          "alt": "#e6ebe8",
+          "ink": "#1a2320",
+          "line": "rgba(0, 0, 0, 0.14)",
+          "brand": "#1a2320",
+          "field": "rgba(0, 0, 0, 0.08)",
+          "focus": "#00ccfc",
+          "panel": "rgba(255, 255, 255, 0.88)",
+          "quiet": "#edf1ef",
+          "altInk": "#1a2320",
+          "canvas": "#f2f5f3",
+          "danger": "#a20015",
+          "brandInk": "#ffffff",
+          "floating": "#ffffff",
+          "panelInk": "#232d29",
+          "quietInk": "#5f6b66",
+          "dangerInk": "#ffffff",
+          "highlight": "#00ccfc",
+          "floatingInk": "#1a2320",
+          "highlightInk": "#06212a"
+        }
+      }
+    },
+    "updated_at": "2026-09-20T05:46:59.105729+00:00"
+  }
+]
