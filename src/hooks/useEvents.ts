@@ -68,6 +68,25 @@ export function useCategories() {
   })
 }
 
+export function useSportsEvents() {
+  const { data: categories } = useCategories()
+  const sports = categories?.find((c) => c.slug === 'sports')
+
+  return useQuery({
+    queryKey: [EVENTS_KEY, 'sports', sports?.id],
+    queryFn: async () => {
+      const { data, error } = await supabase
+        .from('events')
+        .select('*, category:categories(*), registration_count')
+        .eq('category_id', sports!.id)
+        .order('start_date', { ascending: true })
+      if (error) throw error
+      return (data || []) as Event[]
+    },
+    enabled: !!sports,
+  })
+}
+
 export function useCreateEvent() {
   const queryClient = useQueryClient()
   return useMutation({

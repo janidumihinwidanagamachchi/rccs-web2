@@ -808,6 +808,138 @@ body.has-backdrop {
 }
 
 /* =========================================================
+   Sports data: stat tiles + fixture / result rows
+   ========================================================= */
+
+.card-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+}
+
+.card-stat {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  background: rgba(0, 0, 0, 0.35);
+  padding: 16px 18px;
+  text-align: left;
+}
+
+.card-stat-label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #00ccfc;
+}
+
+.card-stat-value {
+  display: block;
+  margin-top: 8px;
+  font-size: 1.7rem;
+  font-weight: 700;
+  line-height: 1;
+  color: #ffffff;
+}
+
+.card-stat-hint {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-fixture-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-fixture {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 13px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.card-fixture:last-child {
+  border-bottom: 0;
+}
+
+.card-fixture-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.card-fixture-date {
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #00ccfc;
+}
+
+.card-fixture-status {
+  margin-left: 8px;
+  padding: 2px 6px;
+  font-size: 0.6rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: #a20015;
+}
+
+.card-fixture-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.card-fixture-title:hover {
+  color: #00ccfc;
+}
+
+.card-fixture-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.card-fixture-meta-dot {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.card-fixture-side {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.card-fixture-spots {
+  font-size: 0.78rem;
+  color: rgba(255, 255, 255, 0.65);
+  white-space: nowrap;
+}
+
+.card-fixture-link {
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #00ccfc;
+  white-space: nowrap;
+}
+
+.card-fixture-link:hover {
+  color: #ffffff;
+}
+
+/* =========================================================
    Compact pages — every route EXCEPT the homepage.
    Smaller one-line header, centred content, tight spacing.
    ========================================================= */
