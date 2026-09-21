@@ -6,6 +6,7 @@ import { SportsGallery } from '@/components/card/SportsGallery'
 import { AnnouncementCard } from '@/components/announcements/AnnouncementCard'
 import { useSportsEvents, useCategories } from '@/hooks/useEvents'
 import { useAnnouncements } from '@/hooks/useAnnouncements'
+import { EVENT_SPORT_IMAGE, SPORT_IMAGES } from '@/data/sportsImages'
 import { formatDate } from '@/lib/utils'
 
 export function SportsPage() {
@@ -34,6 +35,7 @@ export function SportsPage() {
         subtitle="Term-time fixtures, results and club meets."
       >
         <SportsGallery />
+        <p className="card-photo-credit">Photos: Wikimedia Commons (CC0 / public domain)</p>
       </CardSection>
 
       {all.length > 0 && (
@@ -77,47 +79,54 @@ export function SportsPage() {
         </CardSection>
       )}
 
-      <CardSection
-        title="Fixtures"
-        align="middle"
-        subtitle="Upcoming inter-house and club sports."
-      >
+      <CardSection title="Fixtures" align="middle" subtitle="Upcoming inter-house and club sports.">
         {isLoading ? (
           <p className="text-sm text-white/60">Loading fixtures...</p>
         ) : fixtures.length === 0 ? (
           <p className="text-sm text-white/60">No upcoming fixtures right now.</p>
         ) : (
           <div className="card-fixture-list">
-            {fixtures.map((e) => (
-              <div key={e.id} className="card-fixture">
-                <div className="card-fixture-main">
-                  <span className="card-fixture-date">{formatDate(e.start_date)}</span>
-                  <Link to={`/events/${e.slug}`} className="card-fixture-title">
-                    {e.title}
-                  </Link>
-                  <span className="card-fixture-meta">
-                    <MapPin className="mr-1 inline h-3 w-3 align-[-1px]" />
-                    {e.location}
-                    {e.category?.name ? (
-                      <>
-                        <span className="card-fixture-meta-dot">·</span>
-                        {e.category.name}
-                      </>
-                    ) : null}
-                  </span>
-                </div>
-                <div className="card-fixture-side">
-                  {e.capacity ? (
-                    <span className="card-fixture-spots">
-                      {e.registration_count || 0}/{e.capacity} registered
+            {fixtures.map((e) => {
+              const sportKey = EVENT_SPORT_IMAGE[e.slug]
+              return (
+                <div key={e.id} className="card-fixture">
+                  {sportKey && (
+                    <img
+                      src={SPORT_IMAGES[sportKey]}
+                      alt=""
+                      className="card-fixture-thumb"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="card-fixture-main">
+                    <span className="card-fixture-date">{formatDate(e.start_date)}</span>
+                    <Link to={`/events/${e.slug}`} className="card-fixture-title">
+                      {e.title}
+                    </Link>
+                    <span className="card-fixture-meta">
+                      <MapPin className="mr-1 inline h-3 w-3 align-[-1px]" />
+                      {e.location}
+                      {e.category?.name ? (
+                        <>
+                          <span className="card-fixture-meta-dot">·</span>
+                          {e.category.name}
+                        </>
+                      ) : null}
                     </span>
-                  ) : null}
-                  <Link to={`/events/${e.slug}`} className="card-fixture-link">
-                    View
-                  </Link>
+                  </div>
+                  <div className="card-fixture-side">
+                    {e.capacity ? (
+                      <span className="card-fixture-spots">
+                        {e.registration_count || 0}/{e.capacity} registered
+                      </span>
+                    ) : null}
+                    <Link to={`/events/${e.slug}`} className="card-fixture-link">
+                      View
+                    </Link>
+                  </div>
                 </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         )}
       </CardSection>
@@ -125,31 +134,42 @@ export function SportsPage() {
       {results.length > 0 && (
         <CardSection title="Results" align="middle" plain subtitle="Completed inter-house events.">
           <div className="card-fixture-list">
-            {results.map((e) => (
-              <div key={e.id} className="card-fixture">
-                <div className="card-fixture-main">
-                  <span className="card-fixture-date">
-                    {formatDate(e.start_date)}
-                    <span className="card-fixture-status">Completed</span>
-                  </span>
-                  <Link to={`/events/${e.slug}`} className="card-fixture-title">
-                    {e.title}
-                  </Link>
-                  <span className="card-fixture-meta">
-                    <MapPin className="mr-1 inline h-3 w-3 align-[-1px]" />
-                    {e.location}
-                  </span>
+            {results.map((e) => {
+              const sportKey = EVENT_SPORT_IMAGE[e.slug]
+              return (
+                <div key={e.id} className="card-fixture">
+                  {sportKey && (
+                    <img
+                      src={SPORT_IMAGES[sportKey]}
+                      alt=""
+                      className="card-fixture-thumb"
+                      loading="lazy"
+                    />
+                  )}
+                  <div className="card-fixture-main">
+                    <span className="card-fixture-date">
+                      {formatDate(e.start_date)}
+                      <span className="card-fixture-status">Completed</span>
+                    </span>
+                    <Link to={`/events/${e.slug}`} className="card-fixture-title">
+                      {e.title}
+                    </Link>
+                    <span className="card-fixture-meta">
+                      <MapPin className="mr-1 inline h-3 w-3 align-[-1px]" />
+                      {e.location}
+                    </span>
+                  </div>
+                  <div className="card-fixture-side">
+                    <span className="card-fixture-spots">
+                      {e.registration_count || 0} took part
+                    </span>
+                    <Link to={`/events/${e.slug}`} className="card-fixture-link">
+                      View
+                    </Link>
+                  </div>
                 </div>
-                <div className="card-fixture-side">
-                  <span className="card-fixture-spots">
-                    {e.registration_count || 0} took part
-                  </span>
-                  <Link to={`/events/${e.slug}`} className="card-fixture-link">
-                    View
-                  </Link>
-                </div>
-              </div>
-            ))}
+              )
+            })}
           </div>
         </CardSection>
       )}
