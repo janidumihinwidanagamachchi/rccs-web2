@@ -31,7 +31,7 @@ export function Shell({ children }: ShellProps) {
           {children}
         </main>
 
-        <CardFooter />
+        <CardFooter showBarcode={location.pathname === '/'} />
       </div>
     </div>
   )

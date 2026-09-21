@@ -1013,10 +1013,6 @@ body.has-backdrop {
   padding-bottom: 4rem;
 }
 
-.shell--compact .tm-barcode-box {
-  margin: 0 0 8px 95px;
-}
-
 .shell--compact .tm-bottom-container footer {
   margin: 0 40px 16px 40px;
 }
