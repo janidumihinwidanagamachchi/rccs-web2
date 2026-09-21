@@ -120,7 +120,7 @@ export function CalendarPage() {
 
   return (
     <Shell>
-      <CardSection title="Calendar" align="right" wide plain subtitle="The term at a glance.">
+      <CardSection title="Calendar" align="middle" wide plain subtitle="The term at a glance.">
         {isLoading ? (
           <div className="space-y-6">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">

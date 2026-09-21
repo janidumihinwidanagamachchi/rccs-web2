@@ -806,3 +806,76 @@ body.has-backdrop {
     font-size: 1.9rem;
   }
 }
+
+/* =========================================================
+   Compact pages — every route EXCEPT the homepage.
+   Smaller one-line header, centred content, tight spacing.
+   ========================================================= */
+
+.shell--compact .tm-top-container {
+  padding: 14px 20px 0;
+}
+
+.shell--compact .tm-site-header-box {
+  padding: 16px 26px;
+}
+
+.shell--compact .tm-site-title {
+  max-width: min(46vw, 620px);
+  font-size: clamp(1.2rem, 3vw, 1.85rem);
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.shell--compact .tm-site-subtitle {
+  display: none;
+}
+
+.shell--compact .tm-nav {
+  align-self: center;
+}
+
+.shell--compact .tm-nav-links {
+  margin-top: 12px;
+  min-width: 200px;
+}
+
+.shell--compact .card-align {
+  padding: 16px 20px 18px;
+}
+
+.shell--compact .card-section-title {
+  font-size: clamp(1.25rem, 2.6vw, 1.7rem);
+}
+
+.shell--compact .card-section-subtitle {
+  display: none;
+}
+
+.shell--compact .card-textbox {
+  padding: 26px 30px;
+  font-size: 1rem;
+}
+
+.shell--compact .card-links {
+  margin-top: 16px;
+}
+
+.shell--compact main {
+  padding-bottom: 4rem;
+}
+
+.shell--compact .tm-barcode-box {
+  margin: 0 0 8px 95px;
+}
+
+.shell--compact .tm-bottom-container footer {
+  margin: 0 40px 16px 40px;
+}
+
+.shell--compact .container {
+  padding-top: 1.5rem;
+  padding-bottom: 2rem;
+}

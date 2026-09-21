@@ -10,7 +10,7 @@ export function AnnouncementsPage() {
 
   return (
     <Shell>
-      <CardSection title="Announcements" align="right" plain subtitle="Stay informed with the latest school news.">
+      <CardSection title="Announcements" align="middle" plain subtitle="Stay informed with the latest school news.">
         {isLoading ? (
           <div className="space-y-4">
             {[1, 2, 3, 4].map((i) => (

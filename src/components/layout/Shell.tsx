@@ -11,9 +11,10 @@ interface ShellProps {
 
 export function Shell({ children }: ShellProps) {
   const location = useLocation()
+  const compact = location.pathname !== '/'
 
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className={compact ? 'shell--compact relative flex min-h-screen flex-col' : 'relative flex min-h-screen flex-col'}>
       <CardLoader />
       <CardBackground />
 

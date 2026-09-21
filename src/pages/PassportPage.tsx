@@ -27,7 +27,7 @@ export function PassportPage() {
 
   return (
     <Shell>
-      <CardSection title="Event Passport" align="right" wide plain subtitle="Every event you attend adds a stamp.">
+      <CardSection title="Event Passport" align="middle" wide plain subtitle="Every event you attend adds a stamp.">
         <div className="mb-8 grid gap-4 sm:grid-cols-3">
           <Card>
             <CardContent className="p-5">

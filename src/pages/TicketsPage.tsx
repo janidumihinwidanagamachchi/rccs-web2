@@ -12,7 +12,7 @@ export function TicketsPage() {
 
   return (
     <Shell>
-      <CardSection title="My Tickets" align="left" slim subtitle="Your sign-ups and QR tickets.">
+      <CardSection title="My Tickets" align="middle" slim subtitle="Your sign-ups and QR tickets.">
         {isLoading ? (
           <div className="space-y-4">
             {[1, 2].map((i) => (

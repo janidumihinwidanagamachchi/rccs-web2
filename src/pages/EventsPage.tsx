@@ -26,7 +26,7 @@ export function EventsPage() {
 
   return (
     <Shell>
-      <CardSection title="Events" align="right" plain subtitle="Everything on the calendar this term.">
+      <CardSection title="Events" align="middle" plain subtitle="Everything on the calendar this term.">
         {categoriesLoading ? (
           <Skeleton className="mb-8 h-10 rounded-lg" />
         ) : (
